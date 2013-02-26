@@ -1,5 +1,5 @@
-$setlocal inputfolder '..\data'
-$setlocal inputfolder2 '..\rawdata'
+$setlocal inputfolder '..%slash%data'
+$setlocal inputfolder2 '..%slash%rawdata'
 
 
 set
@@ -90,7 +90,7 @@ parameter
 ;
 
 
-$gdxin '%inputfolder%/%ds%.gdx'
+$gdxin '%inputfolder%%slash%%ds%.gdx'
 $load g,i,f,c,h,trade,nhw
 $load rs,r,s
 $load rtxs,rtms
@@ -657,7 +657,7 @@ $ontext
 *	Energy price in China
 parameter 
 	price(rs,i);
-$gdxin '..\data\data.gdx'
+$gdxin %inputfolder%data.gdx
 $load	price=price
 $gdxin
 

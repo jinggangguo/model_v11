@@ -10,7 +10,7 @@
 *	POPULATION GROWTH RATES based on China Census projections to 2030:
 
 parameter population_(*,*,*),popgrowth_(*,*,*);
-$gdxin '..\setpar\pop\merged.gdx'
+$gdxin '%setpar_dir%pop%slash%merged.gdx'
 $load popgrowth_
 $gdxin
 
@@ -361,7 +361,7 @@ res070(rs,"cru")=res070(rs,"cru")*1.5/0.03;
 res070(rs,"gas")=res070(rs,"gas")*1.5/0.03;
 
 
-$include ..\setpar\eppa_ngas.gms
+$include '%setpar_dir%eppa_ngas.gms'
 
 
 parameter res07(rs,grt,pe);

@@ -1,0 +1,22 @@
+#!/bin/sh
+# Run script for China Regional Energy Model
+# 2013-02-26 Paul Natsuo Kishimoto <pnk@MIT.EDU>
+#
+# Based on the files core/model.bat and core/model2.bat
+#
+# TODO:
+# - Document parameters 'ds', 'intflag', 'eleflag1', 'eleflag2'
+
+cd core
+
+if [ ! -d "listings" ]; then mkdir listings; fi
+if [ ! -d "gdx" ]; then mkdir gdx; fi
+
+gams model o=rt.lst gdx=gdx/REF.gdx --ds=allprov
+gams model o=int_r.lst gdx=gdx/INT_R.gdx --ds=allprov --intflag=rint
+
+cd ../gdx
+gdxmerge *.gdx
+
+# commented: gdxxrw not available on Linux/Darwin
+#gdxxrw i=merged.gdx o=compare2.xlsx >dumppar.rpt

@@ -28,17 +28,24 @@ $if not set eleflag2 $set eleflag2 no
 *       Settings for gas supply elasticity:
 $if not set gasflag $set gasflag2 low
 
+* Environment variables
+$setglobal slash \
+$if %system.filesys% == UNIX $setglobal slash /
+
+* Paths
+$setglobal setpar_dir ..%slash%setpar%slash%
 
 *------------------------------------------------------*
 *          SETS AND PARAMETERS                         *
 *------------------------------------------------------*
-$include ..\setpar\0_setpar.gms
+
+$include %setpar_dir%0_setpar.gms
 *$exit
 
 *------------------------------------------------------*
 *          CAPITAL VINTAGING                           *
 *------------------------------------------------------*
-$include ..\setpar\1_vintaging.gms
+$include %setpar_dir%1_vintaging.gms
 *$exit
 
 
@@ -464,11 +471,11 @@ gtap8.iterlim =100000;
 *gtap8.iterlim =0;
 gtap8.reslim=100000;
 gtap8.optfile=1;
-$include gtap8.gen
+$include GTAP8.GEN
 
-$include ..\setpar\2_eppatrend.gms
+$include %setpar_dir%2_eppatrend.gms
 
-$include ..\setpar\3_reportpar_loop.gms
+$include %setpar_dir%3_reportpar_loop.gms
 
 *display gdp;
 *$exit
