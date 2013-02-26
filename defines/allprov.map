@@ -1,0 +1,171 @@
+set rsrs  Regions in the aggregation /	
+	BEJ
+	TAJ
+	HEB
+	SHX
+	NMG
+	LIA
+	JIL
+	HLJ
+	SHH
+	JSU
+	ZHJ
+	ANH
+	FUJ
+	JXI
+	SHD
+	HEN
+	HUB
+	HUN
+	GUD
+	GXI
+	HAI
+	CHQ
+	SIC
+	GZH
+	YUN
+	SHA
+	GAN
+	NXA
+	QIH
+	XIN
+
+	EUR	Europe	
+	APD	Asian and Pacific Developed Countries or Regions
+	ASI	Other Asian Countries
+	NAM	United States and Canada
+	CAA	Former Soviet Union and Central Asia and Africa
+	ROW	Latin America and Eastern European Countries and rest of the world	
+/;
+
+   
+
+
+set	r_(rsrs)	/BEJ,TAJ,HEB,SHX,NMG,LIA,JIL,HLJ,SHH,JSU,ZHJ,ANH,FUJ,JXI,SHD,HEN,HUB,HUN,GUD,GXI,HAI,CHQ,SIC,GZH,YUN,SHA,GAN,NXA,QIH,XIN/;
+set	s_(rsrs)	/EUR,APD,ASI,NAM,CAA,ROW/;
+set	rs_(rsrs)	/BEJ,TAJ,HEB,SHX,NMG,LIA,JIL,HLJ,SHH,JSU,ZHJ,ANH,FUJ,JXI,SHD,HEN,HUB,HUN,GUD,GXI,HAI,CHQ,SIC,GZH,YUN,SHA,GAN,NXA,QIH,XIN,EUR,APD,ASI,NAM,CAA,ROW/;
+;
+
+
+set ii	Sectors in aggregation/
+	AGR
+	COL
+	CRU
+	GAS
+	OMN
+	LID	"Light industries"
+	OIL
+	EID	"Energy intensive industries"
+	OID	"Other industries"
+	TME	"Transport equipments"
+        ELE     
+        GDT     
+        WTR         
+        TRD     
+        TRP     
+        OTH     
+/;
+
+alias (f,ff);
+SET mapf(f,ff)	Mapping of factors;
+mapf(f,f) = yes;
+
+alias (yr,yryr);
+SET mapyr(yr,yryr)	Mapping of time;
+mapyr(yr,yr) = yes;
+
+alias (nhw,nhwnhw);
+SET mapnhw(nhw,nhwnhw)	Mapping of nhw;
+mapnhw(nhw,nhw) = yes;
+
+alias(trade,tradetrade);
+SET maptrade(trade,tradetrade)	Mapping of trade;
+maptrade(trade,trade) = yes;
+
+SET maprs(rs,rsrs) Mapping of GTAP Regions (from-to) /
+	BEJ.BEJ
+	TAJ.TAJ
+	HEB.HEB
+	SHX.SHX
+	NMG.NMG
+	LIA.LIA
+	JIL.JIL
+	HLJ.HLJ
+	SHH.SHH
+	JSU.JSU
+	ZHJ.ZHJ
+	ANH.ANH
+	FUJ.FUJ
+	JXI.JXI
+	SHD.SHD
+	HEN.HEN
+	HUB.HUB
+	HNA.HUN
+	GUD.GUD
+	GXI.GXI
+	HAI.HAI
+	CHQ.CHQ
+	SIC.SIC
+	GZH.GZH
+	YUN.YUN
+	SHA.SHA
+	GAN.GAN
+	NXA.NXA
+	QIH.QIH
+	XIN.XIN
+
+	JPN.APD
+	KOR.APD
+	IDN.ASI
+	IND.ASI
+	CAN.NAM
+	USA.NAM
+	MEX.ROW
+	ARG.ROW
+	BRA.ROW
+	FRA.EUR
+	DEU.EUR
+	ITA.EUR
+	GBR.EUR
+	RUS.CAA
+	TUR.CAA
+	ZAF.CAA
+	ANZ.APD
+	REU.EUR
+	TSG.APD
+	SSA.CAA
+	MEN.CAA
+	LAM.ROW
+	FSU.CAA
+	ASI.ASI
+	ROW.ROW
+	/;
+
+SET mapi(i,ii) Mapping of sectors (from-to) /
+        AGR.AGR     	
+        COL.COL     
+        CRU.CRU     
+        GAS.GAS     
+        OMN.OMN     
+        FBT.LID     		
+        TEX.LID     
+        CLO.LID     
+        OIL.OIL    
+        LUM.LID     
+        PPP.LID     
+        CRP.EID     
+        NMM.EID     
+        MSP.EID     
+        FMP.OID     
+        OME.OID    
+        TME.TME     
+        ELQ.OID     
+        OMF.OID     
+        ELE.ELE     		
+        GDT.GDT     		
+        WTR.WTR     
+        CON.OID     		
+        TRD.TRD     
+        TRP.TRP     
+        OTH.OTH     
+        /;

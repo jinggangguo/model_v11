@@ -1,0 +1,35 @@
+$TITLE  CREM --- Reference scenario file
+
+
+*--------------------------------------------------------------------------
+*	NUMBER OF PERIODS (2007=1, 2010=2, 2015=3,...,2030=6)
+
+PARAMETER	nper;
+nper = 6;
+
+
+*--------------------------------------------------------------------------
+*	RESOURCE DEPLETION: 
+*	1. set price path exogenously (ACTIVATED IF depper=nper+1)
+*	2. depletion model (ACTIVATED IF depper=>2)
+
+PARAMETER	depper(pe);
+depper(pe) = 8;
+
+
+*--------------------------------------------------------------------------
+*	CARBON POLICY: 
+
+
+*	Allowable emissions as fraction of BAU emissions:
+emisreduc(r,t) = 0;
+
+* assign carbon-constrained cc set 
+cc(rs) = no;
+cc(rs)$(sum(t, emisreduc(rs,t))) = yes;
+
+*	Introduce permit trading:
+ctradet(rs,t)$emisreduc(rs,t) = yes;
+
+display ctradet;
+

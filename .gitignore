@@ -1,3 +1,13 @@
 .dropbox
 .Rhistory
 listings
+results
+# editor temporary files
+*.~gm
+# GAMS listing files
+*.lst
+# GAMS runtime data
+*225a
+*225b
+*.g00
+*.GEN

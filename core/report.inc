@@ -1,0 +1,1 @@
+$setglobal case CN1			
